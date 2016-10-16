@@ -3,3 +3,5 @@
 Debug
 build
 .vs
+*.db
+*.opendb
