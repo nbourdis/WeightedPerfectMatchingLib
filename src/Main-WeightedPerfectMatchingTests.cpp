@@ -51,6 +51,7 @@
 void tests_NonMatchingGraph();
 bool test_NonMatchingGraph_DirectCreation();
 bool test_NonMatchingGraph_Deserialization();
+bool test_NonMatchingGraph_WrongFormat1();
 void tests_BipartiteMatchingGraph();
 bool test_BipartiteMatchingGraph_DirectCreation();
 bool test_BipartiteMatchingGraph_Deserialization();
@@ -162,6 +163,7 @@ void tests_NonMatchingGraph()
 	ANNONCE_TEXT_BLOCK
 	EXECUTE_TEST("DirectCreation",test_NonMatchingGraph_DirectCreation)
 	EXECUTE_TEST("Deserialization",test_NonMatchingGraph_Deserialization)
+	EXECUTE_TEST("WrongFormat1",test_NonMatchingGraph_WrongFormat1)
 }
 
 bool test_NonMatchingGraph_DirectCreation()
@@ -192,6 +194,14 @@ bool test_NonMatchingGraph_Deserialization()
 	ss << g;
 	//FLUSHED_CONSOLE_MSG(ss.str() << std::endl)
 	return (ss.str()==std::string(graph_str));
+}
+
+bool test_NonMatchingGraph_WrongFormat1()
+{
+	const char* graph_str = "nv 5\nv 0 4(4294967295) 2(4294967295) 3(1) \nv 1 3(4294967295) 2(1)\nv 2 0(4294967295) 4(1)\nv 3 1(4294967295) 0(1)\nv 4 0(4294967295) 1(1)\n";
+	std::istringstream is(graph_str);
+	wpm::NonMatchingGraph g;
+	return g.deserialize(is)==false;
 }
 
 

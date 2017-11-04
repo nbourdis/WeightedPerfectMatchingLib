@@ -213,3 +213,27 @@ void main()
 	std::cout << "Enter any char to continue...";
 	getchar();
 }
+
+
+
+//#include <fstream>
+//
+//void main() {
+//
+//    // Load the graph file
+//	std::ifstream graph_file("D:/Code/C++/TinyPapers/iofiles/dragon_all/graph.dat", std::ios::in);
+//	if(!graph_file.good()) {
+//        std::cout << "Failed to load graph file!" << std::endl;
+//		return;
+//    }
+//	std::stringstream buffer;
+//	buffer << graph_file.rdbuf();
+//	std::string graph_str = buffer.str();
+//	graph_file.close();
+//    
+//	std::string updated_graph_str;
+//	std::vector<unsigned int> matching;
+//	ResultCode rescode = findBestPerfectMatching(graph_str, matching, updated_graph_str);
+//
+//    std::cout << "Done!" << std::endl;
+//}

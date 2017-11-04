@@ -143,8 +143,10 @@ bool NonMatchingGraph::deserialize(std::istream &is)
 	// Start a new graph with the specified number of vertices
 	startNewGraph(nvertices);
 	// Then deserialize each vertex
-	for(unsigned int n=0; n<nvertices; ++n)
-		Vertex::deserialize(is,_vertices);
+    for(unsigned int n=0; n<nvertices; ++n) {
+        if(!Vertex::deserialize(is, _vertices))
+            return false;
+    }
 	if(!_checkGraphValidity()) {
 		startNewGraph(0);
 		return false;
