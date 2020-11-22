@@ -1,0 +1,7 @@
+*.sdf
+*.user
+Debug
+build
+.vs
+*.db
+*.opendb
